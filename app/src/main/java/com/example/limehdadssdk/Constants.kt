@@ -1,5 +1,7 @@
 package com.example.limehdadssdk
 
+import org.json.JSONObject
+
 /**
  * Класс со вссеми нужными и ненужными константами
  */
@@ -7,7 +9,7 @@ package com.example.limehdadssdk
 class Constants {
 
     companion object {
-        var str = "{\"ads\": [\n" +
+        const val json = "{\"ads\": [\n" +
                 "        {\n" +
                 "            \"id\": 2,\n" +
                 "            \"url\": \"https://an.yandex.ru/meta/347075?imp-id=2&charset=UTF-8&target-ref=http%3A%2F%2Flimehd.ru&page-ref=http%3A%2F%2Flimehd.ru&rnd=3132518945\",\n" +
@@ -75,5 +77,7 @@ class Constants {
                 "    }" +
                 "}"
     }
+
+    val jsonObject = JSONObject(json)
 
 }
