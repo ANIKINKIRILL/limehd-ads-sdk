@@ -39,5 +39,13 @@ class LimeAds constructor(private val context: Context, private val json: JSONOb
         })
     }
 
+    /**
+     * Функция возвращает готовый фрагмент с рекломой от myTarget
+     */
+
+    fun getMyTargetAdFragment() : MyTargetFragment {
+        return myTargetFragment
+    }
+
 }
 
