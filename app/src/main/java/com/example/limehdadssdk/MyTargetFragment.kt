@@ -49,7 +49,7 @@ class MyTargetFragment : Fragment() {
         videoContainer.addView(mInstreamAdPlayer.view)
         mInstreamAd.listener = object : InstreamAd.InstreamAdListener {
             override fun onLoad(p0: InstreamAd) {
-                TODO("Not yet implemented")
+                Log.d(TAG, "onLoad called")
             }
 
             override fun onComplete(p0: String, p1: InstreamAd) {
@@ -57,7 +57,7 @@ class MyTargetFragment : Fragment() {
             }
 
             override fun onBannerPause(p0: InstreamAd, p1: InstreamAd.InstreamAdBanner) {
-                TODO("Not yet implemented")
+                Log.d(TAG, "onBannerPause called")
             }
 
             override fun onBannerStart(p0: InstreamAd, p1: InstreamAd.InstreamAdBanner) {
@@ -65,15 +65,15 @@ class MyTargetFragment : Fragment() {
             }
 
             override fun onNoAd(p0: String, p1: InstreamAd) {
-                TODO("Not yet implemented")
+                Log.d(TAG, "onNoAd called")
             }
 
             override fun onBannerResume(p0: InstreamAd, p1: InstreamAd.InstreamAdBanner) {
-                TODO("Not yet implemented")
+                Log.d(TAG, "onBannerResume called")
             }
 
             override fun onBannerTimeLeftChange(p0: Float, p1: Float, p2: InstreamAd) {
-                TODO("Not yet implemented")
+                Log.d(TAG, "onBannerTimeLeftChange called")
             }
 
             override fun onError(p0: String, p1: InstreamAd) {
@@ -81,7 +81,7 @@ class MyTargetFragment : Fragment() {
             }
 
             override fun onBannerComplete(p0: InstreamAd, p1: InstreamAd.InstreamAdBanner) {
-                TODO("Not yet implemented")
+                Log.d(TAG, "onBannerComplete called")
             }
 
         }
