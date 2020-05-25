@@ -1,6 +1,7 @@
 package com.example.limehdadssdk
 
 import android.content.Context
+import android.util.Log
 import com.my.target.instreamads.InstreamAd
 import org.json.JSONObject
 
@@ -12,6 +13,10 @@ import org.json.JSONObject
  */
 
 class LimeAds constructor(private val context: Context, private val json: JSONObject) {
+
+    companion object {
+        private const val TAG = "LimeAds"
+    }
 
     private var myTargetFragment = MyTargetFragment()
 
@@ -35,7 +40,7 @@ class LimeAds constructor(private val context: Context, private val json: JSONOb
             }
 
             override fun onNoAd() {
-                TODO("Not yet implemented")
+                Log.d(TAG, "onNoAd called")
             }
         })
     }

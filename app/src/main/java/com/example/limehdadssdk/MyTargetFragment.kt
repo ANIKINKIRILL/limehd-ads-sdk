@@ -1,11 +1,13 @@
 package com.example.limehdadssdk
 
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.my.target.instreamads.InstreamAd
 import com.my.target.instreamads.InstreamAdPlayer
@@ -22,6 +24,22 @@ class MyTargetFragment : Fragment() {
     private lateinit var videoContainer: RelativeLayout
     private lateinit var rootContainer: RelativeLayout
 
+    private lateinit var leftTimeText: TextView
+
+    private var leftTimeDelay = 0f
+    private lateinit var leftHandler: Handler
+
+    private var leftRunnable: Runnable = object : Runnable {
+        override fun run() {
+            if (leftTimeDelay > 0) {
+                leftTimeDelay--
+                val leftText = "Осталось ${leftTimeDelay.toInt()} сек."
+                leftTimeText.text = leftText
+                leftHandler.postDelayed(this, 1000)
+            }
+        }
+    }
+
     fun setInstreamAd(instreamAd: InstreamAd){
         mInstreamAd = instreamAd
         mInstreamAd.useDefaultPlayer()
@@ -36,6 +54,7 @@ class MyTargetFragment : Fragment() {
         val rootView: View = inflater.inflate(R.layout.fragment_instream, container, false)
         rootContainer = rootView.findViewById(R.id.root_container)
         videoContainer = rootView.findViewById(R.id.video_container)
+        leftTimeText = rootView.findViewById(R.id.time_left)
         return rootView
     }
 
@@ -53,15 +72,23 @@ class MyTargetFragment : Fragment() {
             }
 
             override fun onComplete(p0: String, p1: InstreamAd) {
-                Log.d(TAG, "onComplete called")
+                leftHandler.removeCallbacks(leftRunnable)
             }
 
             override fun onBannerPause(p0: InstreamAd, p1: InstreamAd.InstreamAdBanner) {
                 Log.d(TAG, "onBannerPause called")
             }
 
-            override fun onBannerStart(p0: InstreamAd, p1: InstreamAd.InstreamAdBanner) {
-                Log.d(TAG, "onBannerStart called")
+            override fun onBannerStart(instreamAd: InstreamAd, instreamAdBanner: InstreamAd.InstreamAdBanner) {
+                leftTimeText.visibility = View.VISIBLE
+                leftTimeText.bringToFront()
+                if(instreamAdBanner.duration > 0) {
+                    leftTimeDelay = instreamAdBanner.duration
+                    leftHandler = Handler()
+                    val leftText = "Осталось ${instreamAdBanner.duration.toInt()} сек."
+                    leftTimeText.text = leftText
+                    leftHandler.postDelayed(leftRunnable, 1000)
+                }
             }
 
             override fun onNoAd(p0: String, p1: InstreamAd) {
@@ -85,6 +112,24 @@ class MyTargetFragment : Fragment() {
             }
 
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+//        mInstreamAd.resume()
+//        leftHandler.postDelayed(leftRunnable, 1000)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mInstreamAd.pause()
+        leftHandler.removeCallbacks(leftRunnable)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mInstreamAd.pause()
+        leftHandler.removeCallbacks(leftRunnable)
     }
 
 }
