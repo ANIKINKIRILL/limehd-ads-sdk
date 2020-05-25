@@ -12,7 +12,15 @@ import org.json.JSONObject
 
 class LimeAds constructor(private val context: Context, private val json: JSONObject) {
 
-    
+    /**
+     * Получить рекламу от площадки myTarget
+     *
+     * @param context     Context приложения
+     */
+
+    private fun getMyTargetAd(context: Context){
+        
+    }
 
 }
 
