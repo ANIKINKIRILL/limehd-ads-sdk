@@ -21,12 +21,13 @@ class LimeAds constructor(private val context: Context, private val json: JSONOb
      * @param context     Context приложения
      */
 
-    private fun getMyTargetAd(context: Context){
+    fun getMyTargetAd(context: Context){
         val myTargetLoader = MyTargetLoader(context)
         myTargetLoader.loadAd()
         myTargetLoader.setAdLoader(object : AdLoader {
             override fun onLoaded(instreamAd: InstreamAd) {
                 myTargetFragment.setInstreamAd(instreamAd)
+                myTargetFragment.initializePlaying()
             }
 
             override fun onError() {
