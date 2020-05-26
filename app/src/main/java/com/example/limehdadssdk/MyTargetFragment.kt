@@ -116,20 +116,32 @@ class MyTargetFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-//        mInstreamAd.resume()
-//        leftHandler.postDelayed(leftRunnable, 1000)
+        if(this::mInstreamAd.isInitialized) {
+            mInstreamAd.resume()
+        }
+        if(this::leftHandler.isInitialized) {
+            leftHandler.postDelayed(leftRunnable, 1000)
+        }
     }
 
     override fun onPause() {
         super.onPause()
-        mInstreamAd.pause()
-        leftHandler.removeCallbacks(leftRunnable)
+        if(this::mInstreamAd.isInitialized) {
+            mInstreamAd.pause()
+        }
+        if(this::leftHandler.isInitialized) {
+            leftHandler.removeCallbacks(leftRunnable)
+        }
     }
 
     override fun onStop() {
         super.onStop()
-        mInstreamAd.pause()
-        leftHandler.removeCallbacks(leftRunnable)
+        if(this::mInstreamAd.isInitialized) {
+            mInstreamAd.pause()
+        }
+        if(this::leftHandler.isInitialized) {
+            leftHandler.removeCallbacks(leftRunnable)
+        }
     }
 
 }
