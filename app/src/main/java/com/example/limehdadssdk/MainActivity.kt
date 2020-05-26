@@ -10,8 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val limeAds = LimeAds(this, JSONObject(Constants.json))
-        limeAds.getMyTargetAd(this)
-        val myTargetFragment = limeAds.getMyTargetAdFragment()
+        val myTargetFragment = limeAds.getMyTargetAd(this)
         supportFragmentManager.beginTransaction().replace(R.id.main_container, myTargetFragment).commit()
     }
 }
