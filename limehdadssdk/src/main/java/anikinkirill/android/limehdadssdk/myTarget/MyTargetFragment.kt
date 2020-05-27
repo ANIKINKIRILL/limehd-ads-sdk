@@ -1,4 +1,4 @@
-package com.example.limehdadssdk.myTarget
+package anikinkirill.android.limehdadssdk.myTarget
 
 import android.os.Bundle
 import android.os.Handler
@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.example.limehdadssdk.R
+import anikinkirill.android.limehdadssdk.R
 import com.my.target.instreamads.InstreamAd
 import com.my.target.instreamads.InstreamAdPlayer
 

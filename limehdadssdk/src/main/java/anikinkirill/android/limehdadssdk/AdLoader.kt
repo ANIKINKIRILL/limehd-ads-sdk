@@ -1,4 +1,4 @@
-package com.example.limehdadssdk
+package anikinkirill.android.limehdadssdk
 
 import com.my.target.instreamads.InstreamAd
 

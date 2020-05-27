@@ -1,15 +1,14 @@
-package com.example.limehdadssdk.myTarget
+package anikinkirill.android.limehdadssdk.myTarget
 
 import android.content.Context
-import com.example.limehdadssdk.AdLoader
 import com.my.target.instreamads.InstreamAd
 
 class MyTargetLoader constructor(private val context: Context) : InstreamAd.InstreamAdListener {
 
-    private lateinit var adLoader: AdLoader
+    private lateinit var adLoader: anikinkirill.android.limehdadssdk.AdLoader
     private val slotId = 621422
 
-    fun setAdLoader(adLoader: AdLoader){
+    fun setAdLoader(adLoader: anikinkirill.android.limehdadssdk.AdLoader){
         this.adLoader = adLoader
     }
 
