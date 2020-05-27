@@ -25,14 +25,14 @@ class LimeAds constructor(private val context: Context, private val json: JSONOb
      * @param context     Context приложения
      */
 
-    fun getMyTargetAd(context: Context) : Fragment {
-        val myTargetFragment = MyTargetFragment()
+    fun getMyTargetAd(context: Context) : Fragment? {
+        var myTargetFragment: MyTargetFragment? = MyTargetFragment()
         val myTargetLoader = MyTargetLoader(context)
         myTargetLoader.loadAd()
         myTargetLoader.setAdLoader(object : AdLoader {
             override fun onLoaded(instreamAd: InstreamAd) {
-                myTargetFragment.setInstreamAd(instreamAd)
-                myTargetFragment.initializePlaying()
+                myTargetFragment?.setInstreamAd(instreamAd)
+                myTargetFragment?.initializePlaying()
             }
 
             override fun onError() {
@@ -40,7 +40,7 @@ class LimeAds constructor(private val context: Context, private val json: JSONOb
             }
 
             override fun onNoAd() {
-                Log.d(TAG, "onNoAd called")
+                myTargetFragment = null
             }
         })
         return myTargetFragment
