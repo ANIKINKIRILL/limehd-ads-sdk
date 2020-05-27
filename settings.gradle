@@ -1,2 +1,3 @@
 rootProject.name='LimeHdAdsSdk'
 include ':app'
+include ':limehdadssdk'
