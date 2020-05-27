@@ -1,8 +1,9 @@
 package com.example.limehdadssdk
 
 import android.content.Context
-import android.util.Log
 import androidx.fragment.app.Fragment
+import com.example.limehdadssdk.myTarget.MyTargetFragment
+import com.example.limehdadssdk.myTarget.MyTargetLoader
 import com.my.target.instreamads.InstreamAd
 import org.json.JSONObject
 
