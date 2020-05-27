@@ -3,6 +3,8 @@ package com.example.limehdadssdk
 import android.content.Context
 import android.util.Log
 import androidx.fragment.app.Fragment
+import com.example.limehdadssdk.myTarget.MyTargetFragment
+import com.example.limehdadssdk.myTarget.MyTargetLoader
 import com.my.target.instreamads.InstreamAd
 import org.json.JSONObject
 
@@ -25,14 +27,14 @@ class LimeAds constructor(private val context: Context, private val json: JSONOb
      * @param context     Context приложения
      */
 
-    fun getMyTargetAd(context: Context) : Fragment? {
-        var myTargetFragment: MyTargetFragment? = MyTargetFragment()
+    fun getMyTargetAd(context: Context) : Fragment {
+        val myTargetFragment = MyTargetFragment()
         val myTargetLoader = MyTargetLoader(context)
         myTargetLoader.loadAd()
         myTargetLoader.setAdLoader(object : AdLoader {
             override fun onLoaded(instreamAd: InstreamAd) {
-                myTargetFragment?.setInstreamAd(instreamAd)
-                myTargetFragment?.initializePlaying()
+                myTargetFragment.setInstreamAd(instreamAd)
+                myTargetFragment.initializePlaying()
             }
 
             override fun onError() {
@@ -40,7 +42,7 @@ class LimeAds constructor(private val context: Context, private val json: JSONOb
             }
 
             override fun onNoAd() {
-                myTargetFragment = null
+                Log.d(TAG, "onNoAd called")
             }
         })
         return myTargetFragment

@@ -17,14 +17,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val limeAds = LimeAds(this, JSONObject(Constants.json))
         val myTargetFragment = limeAds.getMyTargetAd(this)
-        if(myTargetFragment != null){
-            // Реклама нашлась. Показываем на UI
-            Log.d(TAG, "Реклама нашлась. Отображаем её на UI")
-            supportFragmentManager.beginTransaction().replace(R.id.main_container, myTargetFragment).commit()
-        }else{
-            // Рекламы нет
-            Log.d(TAG, "Рекламы нет")
-            Toast.makeText(this, "Реклама не нашлось. Сейчас поищу на след. площадке", Toast.LENGTH_LONG).show()
-        }
+        supportFragmentManager.beginTransaction().replace(R.id.main_container, myTargetFragment).commit()
     }
 }
