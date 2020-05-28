@@ -6,7 +6,8 @@ import com.my.target.instreamads.InstreamAd
 class MyTargetLoader constructor(private val context: Context) : InstreamAd.InstreamAdListener {
 
     private lateinit var adLoader: AdLoader
-    private val slotId = 621422
+//    private val slotId = 621422
+    private val slotId = 3133
 
     fun setAdLoader(adLoader: AdLoader){
         this.adLoader = adLoader
