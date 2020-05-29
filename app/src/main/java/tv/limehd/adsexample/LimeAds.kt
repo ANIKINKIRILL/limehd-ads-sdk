@@ -1,4 +1,4 @@
-package tv.limehd.adsmodule
+package tv.limehd.adsexample
 
 import android.content.Context
 import android.util.Log
