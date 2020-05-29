@@ -5,11 +5,11 @@ import com.my.target.instreamads.InstreamAd
 
 class MyTargetLoader constructor(private val context: Context) : InstreamAd.InstreamAdListener {
 
-    private lateinit var adLoader: tv.limehd.adsmodule.AdLoader
+    private lateinit var adLoader: AdLoader
 //  private val slotId = 621422
     private val slotId = 9525
 
-    fun setAdLoader(adLoader: tv.limehd.adsmodule.AdLoader){
+    fun setAdLoader(adLoader: AdLoader){
         this.adLoader = adLoader
     }
 
