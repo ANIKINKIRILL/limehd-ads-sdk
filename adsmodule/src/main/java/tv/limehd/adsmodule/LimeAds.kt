@@ -1,4 +1,4 @@
-package tv.limehd.adsexample
+package tv.limehd.adsmodule
 
 import android.content.Context
 import android.util.Log
@@ -27,9 +27,9 @@ class LimeAds constructor(private val context: Context, private val json: JSONOb
      */
 
     fun getMyTargetAd(context: Context){
-        val myTargetLoader = MyTargetLoader(context)
+        val myTargetLoader = tv.limehd.adsmodule.MyTargetLoader(context)
         myTargetLoader.loadAd()
-        myTargetLoader.setAdLoader(object : AdLoader {
+        myTargetLoader.setAdLoader(object : tv.limehd.adsmodule.AdLoader {
             override fun onLoaded(instreamAd: InstreamAd) {
                 myTargetFragment.setInstreamAd(instreamAd)
                 myTargetFragment.initializePlaying()

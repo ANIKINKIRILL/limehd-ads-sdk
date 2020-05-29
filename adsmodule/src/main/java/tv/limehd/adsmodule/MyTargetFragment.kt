@@ -1,4 +1,4 @@
-package tv.limehd.adsexample
+package tv.limehd.adsmodule
 
 import android.os.Bundle
 import android.os.Handler

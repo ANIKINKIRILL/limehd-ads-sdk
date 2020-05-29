@@ -1,4 +1,4 @@
-package tv.limehd.adsexample
+package tv.limehd.adsmodule
 
 import org.json.JSONObject
 
