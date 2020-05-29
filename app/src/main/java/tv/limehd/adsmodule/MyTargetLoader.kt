@@ -1,4 +1,4 @@
-package com.example.limehdadssdk
+package tv.limehd.adsmodule
 
 import android.content.Context
 import com.my.target.instreamads.InstreamAd
