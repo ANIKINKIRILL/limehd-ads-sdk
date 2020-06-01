@@ -1,4 +1,4 @@
-package com.example.limehdadssdk
+package tv.limehd.adsexample
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -1,13 +1,14 @@
-package com.example.limehdadssdk.myTarget
+package tv.limehd.adsmodule
 
 import android.content.Context
-import com.example.limehdadssdk.AdLoader
 import com.my.target.instreamads.InstreamAd
 
 class MyTargetLoader constructor(private val context: Context) : InstreamAd.InstreamAdListener {
 
     private lateinit var adLoader: AdLoader
-    private val slotId = 621422
+//  private val slotId = 621422 // in production
+    private val slotId = 9525   // for testing
+//    private val slotId = 1010 // error
 
     fun setAdLoader(adLoader: AdLoader){
         this.adLoader = adLoader

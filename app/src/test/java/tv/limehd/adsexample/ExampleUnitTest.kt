@@ -1,4 +1,4 @@
-package com.example.limehdadssdk
+package tv.limehd.adsexample
 
 import org.junit.Test
 
