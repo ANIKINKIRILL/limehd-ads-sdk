@@ -6,7 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import org.json.JSONObject
-import tv.limehd.adsmodule.FragmentState
+import tv.limehd.adsmodule.interfaces.FragmentState
 import tv.limehd.adsmodule.LimeAds
 
 class MainActivity : AppCompatActivity() {
@@ -22,7 +22,8 @@ class MainActivity : AppCompatActivity() {
         limeAds.getMyTargetAd(this, R.id.main_container, fragmentStateCallback)
     }
 
-    private val fragmentStateCallback = object : FragmentState {
+    private val fragmentStateCallback = object :
+        FragmentState {
         override fun onSuccessState(fragment: Fragment) {
             Log.d(TAG, "onSuccessState called")
             supportFragmentManager.beginTransaction().replace(R.id.main_container, fragment).commit()

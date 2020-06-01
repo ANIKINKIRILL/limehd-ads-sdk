@@ -1,4 +1,4 @@
-package tv.limehd.adsmodule
+package tv.limehd.adsmodule.interfaces
 
 import androidx.fragment.app.Fragment
 

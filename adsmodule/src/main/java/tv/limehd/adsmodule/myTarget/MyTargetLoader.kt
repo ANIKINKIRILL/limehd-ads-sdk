@@ -2,7 +2,7 @@ package tv.limehd.adsmodule.myTarget
 
 import android.content.Context
 import com.my.target.instreamads.InstreamAd
-import tv.limehd.adsmodule.AdLoader
+import tv.limehd.adsmodule.interfaces.AdLoader
 
 class MyTargetLoader constructor(private val context: Context) : InstreamAd.InstreamAdListener {
 
