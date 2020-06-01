@@ -2,6 +2,7 @@ package tv.limehd.adsmodule
 
 import android.content.Context
 import android.util.Log
+import androidx.fragment.app.FragmentActivity
 import com.my.target.instreamads.InstreamAd
 import org.json.JSONObject
 
@@ -19,20 +20,30 @@ class LimeAds constructor(private val context: Context, private val json: JSONOb
     }
 
     private var myTargetFragment = MyTargetFragment()
+    private lateinit var fragmentState: FragmentState
+
+    fun setFragmentState(fragmentState: FragmentState){
+        this.fragmentState = fragmentState
+    }
 
     /**
      * Получить рекламу от площадки myTarget
      *
      * @param context     Context приложения
+     * @param resId       Id контейнера, куда нужно будет поместить фрагмент
      */
 
-    fun getMyTargetAd(context: Context){
+    fun getMyTargetAd(context: Context, resId: Int) {
         val myTargetLoader = MyTargetLoader(context)
+        val activity = context as FragmentActivity
+        val fragmentManager = activity.supportFragmentManager
+        fragmentManager.beginTransaction().replace(resId, myTargetFragment).commit()
         myTargetLoader.loadAd()
         myTargetLoader.setAdLoader(object : AdLoader {
             override fun onLoaded(instreamAd: InstreamAd) {
                 myTargetFragment.setInstreamAd(instreamAd)
                 myTargetFragment.initializePlaying()
+                fragmentState.onSuccessState(myTargetFragment)
             }
 
             override fun onError() {
@@ -41,17 +52,10 @@ class LimeAds constructor(private val context: Context, private val json: JSONOb
 
             override fun onNoAd() {
                 Log.d(TAG, "onNoAd called")
+                fragmentState.onErrorState("NoAd")
+                fragmentManager.beginTransaction().remove(myTargetFragment).commit()
             }
         })
     }
-
-    /**
-     * Функция возвращает готовый фрагмент с рекломой от myTarget
-     */
-
-    fun getMyTargetAdFragment() : MyTargetFragment {
-        return myTargetFragment
-    }
-
 }
 
