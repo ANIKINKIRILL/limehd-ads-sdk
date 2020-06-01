@@ -20,20 +20,16 @@ class LimeAds constructor(private val context: Context, private val json: JSONOb
     }
 
     private var myTargetFragment = MyTargetFragment()
-    private lateinit var fragmentState: FragmentState
-
-    fun setFragmentState(fragmentState: FragmentState){
-        this.fragmentState = fragmentState
-    }
 
     /**
      * Получить рекламу от площадки myTarget
      *
      * @param context     Context приложения
      * @param resId       Id контейнера, куда нужно будет поместить фрагмент
+     * @param fragmentState     callback
      */
 
-    fun getMyTargetAd(context: Context, resId: Int) {
+    fun getMyTargetAd(context: Context, resId: Int, fragmentState: FragmentState) {
         val myTargetLoader = MyTargetLoader(context)
         val activity = context as FragmentActivity
         val fragmentManager = activity.supportFragmentManager

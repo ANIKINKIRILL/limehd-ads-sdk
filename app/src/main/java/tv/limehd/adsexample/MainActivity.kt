@@ -19,17 +19,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val limeAds = LimeAds(this, JSONObject())
-        limeAds.getMyTargetAd(this, R.id.main_container)
-        limeAds.setFragmentState(object : FragmentState {
-            override fun onSuccessState(fragment: Fragment) {
-                Log.d(TAG, "onSuccessState called")
-                supportFragmentManager.beginTransaction().replace(R.id.main_container, fragment).commit()
-            }
-
-            override fun onErrorState(message: String) {
-                Log.d(TAG, "onErrorState called: $message")
-                Toast.makeText(this@MainActivity, message, Toast.LENGTH_LONG).show()
-            }
-        })
+        limeAds.getMyTargetAd(this, R.id.main_container, fragmentStateCallback)
     }
+
+    private val fragmentStateCallback = object : FragmentState {
+        override fun onSuccessState(fragment: Fragment) {
+            Log.d(TAG, "onSuccessState called")
+            supportFragmentManager.beginTransaction().replace(R.id.main_container, fragment).commit()
+        }
+
+        override fun onErrorState(message: String) {
+            Log.d(TAG, "onErrorState called: $message")
+            Toast.makeText(this@MainActivity, message, Toast.LENGTH_LONG).show()
+        }
+    }
+
 }
