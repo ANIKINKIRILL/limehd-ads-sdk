@@ -1,0 +1,28 @@
+R_DEF: Internal format may change without notice
+local
+color colorAccent
+color colorAllotListNight
+color colorBlack
+color colorChannelDefAllot
+color colorLightNight
+color colorNight
+color colorPrimary
+color colorPrimaryDark
+color colorWhite
+dimen adMargin
+drawable background_channel_default_longnight
+drawable background_channel_longnight
+drawable background_channel_selected_longnight
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id btn_off_ads
+id btn_skip
+id learn_more
+id root_container
+id time_left
+id video_container
+layout fragment_instream
+string ads_off
+string app_name
+string more_text
+style AppTheme
