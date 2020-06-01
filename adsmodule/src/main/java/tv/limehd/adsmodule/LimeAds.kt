@@ -5,6 +5,8 @@ import android.util.Log
 import androidx.fragment.app.FragmentActivity
 import com.my.target.instreamads.InstreamAd
 import org.json.JSONObject
+import tv.limehd.adsmodule.myTarget.MyTargetFragment
+import tv.limehd.adsmodule.myTarget.MyTargetLoader
 
 /**
  * Класс для работы с рекламой
