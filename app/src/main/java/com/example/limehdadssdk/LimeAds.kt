@@ -2,6 +2,9 @@ package com.example.limehdadssdk
 
 import android.content.Context
 import android.util.Log
+import androidx.fragment.app.Fragment
+import com.example.limehdadssdk.myTarget.MyTargetFragment
+import com.example.limehdadssdk.myTarget.MyTargetLoader
 import com.my.target.instreamads.InstreamAd
 import org.json.JSONObject
 
@@ -18,15 +21,14 @@ class LimeAds constructor(private val context: Context, private val json: JSONOb
         private const val TAG = "LimeAds"
     }
 
-    private var myTargetFragment = MyTargetFragment()
-
     /**
      * Получить рекламу от площадки myTarget
      *
      * @param context     Context приложения
      */
 
-    fun getMyTargetAd(context: Context){
+    fun getMyTargetAd(context: Context) : Fragment {
+        val myTargetFragment = MyTargetFragment()
         val myTargetLoader = MyTargetLoader(context)
         myTargetLoader.loadAd()
         myTargetLoader.setAdLoader(object : AdLoader {
@@ -43,15 +45,7 @@ class LimeAds constructor(private val context: Context, private val json: JSONOb
                 Log.d(TAG, "onNoAd called")
             }
         })
-    }
-
-    /**
-     * Функция возвращает готовый фрагмент с рекломой от myTarget
-     */
-
-    fun getMyTargetAdFragment() : MyTargetFragment {
         return myTargetFragment
     }
-
 }
 
