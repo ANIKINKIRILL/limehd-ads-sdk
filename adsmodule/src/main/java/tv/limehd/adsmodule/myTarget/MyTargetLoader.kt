@@ -1,12 +1,8 @@
-<<<<<<< HEAD:adsmodule/src/main/java/tv/limehd/adsmodule/MyTargetLoader.kt
-package tv.limehd.adsmodule
-=======
-package com.example.limehdadssdk.myTarget
->>>>>>> develop:adsmodule/src/main/java/tv/limehd/adsmodule/myTarget/MyTargetLoader.kt
+package tv.limehd.adsmodule.myTarget
 
 import android.content.Context
-import com.example.limehdadssdk.AdLoader
 import com.my.target.instreamads.InstreamAd
+import tv.limehd.adsmodule.AdLoader
 
 class MyTargetLoader constructor(private val context: Context) : InstreamAd.InstreamAdListener {
 

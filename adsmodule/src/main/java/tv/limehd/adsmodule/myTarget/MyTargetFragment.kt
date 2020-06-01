@@ -1,8 +1,4 @@
-<<<<<<< HEAD:adsmodule/src/main/java/tv/limehd/adsmodule/MyTargetFragment.kt
-package tv.limehd.adsmodule
-=======
-package com.example.limehdadssdk.myTarget
->>>>>>> develop:adsmodule/src/main/java/tv/limehd/adsmodule/myTarget/MyTargetFragment.kt
+package tv.limehd.adsmodule.myTarget
 
 import android.os.Bundle
 import android.os.Handler
@@ -13,9 +9,9 @@ import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.example.limehdadssdk.R
 import com.my.target.instreamads.InstreamAd
 import com.my.target.instreamads.InstreamAdPlayer
+import tv.limehd.adsmodule.R
 
 class MyTargetFragment : Fragment() {
 
